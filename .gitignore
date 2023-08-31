@@ -2,4 +2,4 @@
 .env*
 
 # output
-output/*
+*/output/*
