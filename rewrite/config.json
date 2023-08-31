@@ -1,0 +1,9 @@
+{
+    "input_dir": "./input",
+    "output_dir": "./output",
+    "patch-targets": ["IOSurface.kext/Contents/MacOS/IOSurface"],
+    "cov-rewrite": true,
+    "entitle-rewrite": true,
+    "helper-kext-bundle": "kextfuzz.example.helper",
+    "symbol-pair": [{"ori_sym": "__os_log_internal", "hooker_sym": "_COVIOCTL_COVWRIT"}, {"ori_sym": "_IOLog", "hooker_sym": "_COVRT"}]
+}
