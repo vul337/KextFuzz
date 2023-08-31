@@ -12,7 +12,7 @@ Thanks for your attention.
 The `./rewrite` directory contains the code to do kext instrumentation and entitlement patch.
 
 
-*Step 1*. Get a patched kext. 
+**Step 1. Get a patched kext.**
 
 Note: edit `./rewrite/config.json` to specify the patch target and strategy.
 Instrumentation and Entitlement patching are enabled by default.
@@ -23,14 +23,14 @@ $ python bin_rewrite.py config.json
 ```
 The patched kext will be saved in the `./rewrite/output` directory by default.
 
-*Step 2* Build helper.kext
+**Step 2. Build helper.kext**
 
 Build the `./rewrite/helper` in XCode to get helper.kext
 
 Note: The helper kext should implement fake 1) the entitlement checker and 2) the profiling function which will be instrumented into the kext. 
 The helper.kext in the repository is an example of the helper kext. Please customize your own profiling functions with reference to `./rewrite/helper/helper.cpp`.
 
-*Step 3*. Build macOS kernel collection. [reference](https://kernelshaman.blogspot.com/2021/02/building-xnu-for-macos-112-intel-apple.html)
+**Step 3. Build macOS kernel collection. [reference](https://kernelshaman.blogspot.com/2021/02/building-xnu-for-macos-112-intel-apple.html)**
 
 ```
 $ kmutil inspect -V release --no-header | grep -v "SEPHiber" | awk '{print " -b "$1; }' > kext_list
@@ -43,7 +43,7 @@ $ kmutil create -a arm64e -z -V release -n boot -B /path/to/your.kc -k /System/L
 ```
 
 
-*Step 4*. Install the patched kernel collection
+**Step 4. Install the patched kernel collection**
 
 1. Boot into recovery mode & open terminal.
 2. Enter `csrutil disable` to disable System Integrity Protection.
