@@ -1,5 +1,12 @@
 # python env 
 .env*
 
+# macOS env
+.DS_Store
+
 # output
 */output/*
+
+# xcode
+xcuserdata
+*.xcworkspace
