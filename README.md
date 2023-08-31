@@ -27,7 +27,8 @@ The patched kext will be saved in the `./rewrite/output` directory by default.
 
 Build the `./rewrite/helper` in XCode to get helper.kext
 
-Note: The helper.kext in the repository is an example of the helper kext. Please customize your own profiling functions with reference to `./rewrite/helper/helper.cpp`.
+Note: The helper kext should implement fake 1) the entitlement checker and 2) the profiling function which will be instrumented into the kext. 
+The helper.kext in the repository is an example of the helper kext. Please customize your own profiling functions with reference to `./rewrite/helper/helper.cpp`.
 
 *Step 3*. Build macOS kernel collection. [reference](https://kernelshaman.blogspot.com/2021/02/building-xnu-for-macos-112-intel-apple.html)
 
